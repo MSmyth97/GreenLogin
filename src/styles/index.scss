@@ -1,12 +1,10 @@
 @import './LoginBox.scss';
+@import './variables.scss';
 
 html,
 body {
     width: 100vw;
     min-height: 100vh;
     background-color: #fafafa;
-}
-
-#root {
-    
+    font-family: $font-gotham;
 }
