@@ -13,13 +13,13 @@ export const LoginModal = () => {
             </div>
             <div className='form-container'>
                 <p className='form-title'>Email Address</p>
-                <form id="log-in-form">
+                <form id="log-in-form" className="log-in-form">
                     <input type="text" maxLength="50" id="email-input"/><br />
                     <input type="checkbox" className="checkbox"/>
                     <label for="checkbox">Remember This Device</label>
                 </form>
             </div>
-            <button className="sign-in-button" form="log-in-form">Sign In</button>
+            <button className="sign-in-button">Sign In</button>
         </div>
     );
 }

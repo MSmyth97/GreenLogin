@@ -5,13 +5,38 @@
     margin-left: 10%;
 }
 
-@mixin styled-input() {
-    display: block;
-    font-size:11px;
-    padding:4px 2px;
-    border:solid 1px #aacfe4;
-    margin:2px 0 20px 10px;
+@mixin font-style-light {
+    font-family: $font-gotham;
+    font-weight: 200 
 }
+
+@mixin font-control-width($defaultSize) {
+    @media(max-width: 900px) {
+        font-size: $defaultSize / 1.2;
+    }
+}
+
+@mixin control-screen-width-change($defaultWidth) {
+    @media(max-width: 1000px) {
+        width: $defaultWidth / 1.2;
+    }
+    @media(max-width: 600px) {
+        width: $defaultWidth / 1.4;
+    }
+    @media(max-width: 400px) {
+        width: $defaultWidth / 1.6;
+    }
+}
+
+@mixin control-screen-height-change($defaultHeight) {
+    @media(max-width: 1000px) {
+        height: $defaultHeight / 1.2;
+    }
+}
+
+// @mixin set-min-width-smallest-screen {
+//     @media(max-width: )
+// }
 
 * {
     margin-block-end: 0;
@@ -19,16 +44,15 @@
 }
 
 #box {
+    grid-area: modal;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 60px [blank] 36px [logo] 158px [title] 200px [form] 145px [button];
+    grid-template-rows: auto [blank] auto [logo] auto [title] auto [form] auto [button];
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 95vw;
     transform: translate(-50%, -50%);
-    max-width: 600px;
-    height: 600px;
+    position: relative;
     background-color: white;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 
@@ -55,6 +79,8 @@
             color: $font-colour-light;
             font-weight: 600;
             margin-block-end: 0.2em;
+            font-size: 1.8rem;
+            @include font-control-width(1.8rem);
         }
 
         .title-subtitle {
@@ -70,13 +96,17 @@
         grid-row-end: 5;
 
         .form-title {
-            font-family: $font-gotham-pro;
-            font-weight: 200;
+            @include font-style-light();
             margin-block-end: 0.5em;
             color: #aca8ab;
         }
 
+        .log-in-form {
+            margin-right: 10px;
+        }
+
         #email-input {
+            @include control-screen-width-change(86%);
             margin-block-end: 1em;
             padding: 1.3em;
             width: 86%;
@@ -96,26 +126,33 @@
         }
 
         label {
+            @include font-style-light();
             vertical-align: middle;
             display: inline-block;
             margin-left: 6px;
             font-family: $font-gotham-pro;
             font-size: 16px;
-            font-weight: 200;
             letter-spacing: -0.03rem
         }
     }
 
     .sign-in-button {
         @include left-margin();
+        @include control-screen-width-change(25%);
+        @include control-screen-height-change(40%);
         font-family: $font-gotham-pro;
         font-size: 15px;
         grid-row-start: 5;
         width: 25%;
         height: 40%;
         background-color: white;
-        border-radius: 10%;
+        border-radius: 6px;
         border: 1px solid lightgray;
+
+        &:hover {
+            background-color: #2EAF5F;
+            color: white;
+        }
     }
 }
 
