@@ -1,14 +1,121 @@
+
+@import './variables.scss';
+
+@mixin left-margin() {
+    margin-left: 10%;
+}
+
+@mixin styled-input() {
+    display: block;
+    font-size:11px;
+    padding:4px 2px;
+    border:solid 1px #aacfe4;
+    margin:2px 0 20px 10px;
+}
+
+* {
+    margin-block-end: 0;
+    margin-block-start: 0;
+}
+
 #box {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 60px [blank] 36px [logo] 158px [title] 200px [form] 145px [button];
+    position: absolute;
+    top: 50%;
+    left: 50%;
     width: 95vw;
+    transform: translate(-50%, -50%);
     max-width: 600px;
     height: 600px;
     background-color: white;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    margin: 0 auto;
-    display: flex;
 
-    .logo {
-        max-height: 33px;
+    .logo-container {
+        @include left-margin();
+        grid-row-start: 2;
+        grid-row-end: 3;
+        width: 22%;
+ 
+        img {
+            max-height: 33px;
+        }
+    }
+
+    .title-container {
+        @include left-margin();
+        position: relative;
+        margin-top: 5%;
+        grid-row-start: 3;
+        grid-row-end: 4;        
+        
+        .title-text {
+            font-family: $font-gotham;
+            color: $font-colour-light;
+            font-weight: 600;
+            margin-block-end: 0.2em;
+        }
+
+        .title-subtitle {
+            font-family: $font-gotham-pro;
+            font-size: 15px;
+            font-weight: 100;
+        }
+    }
+
+    .form-container {
+        @include left-margin();
+        grid-row-start: 4;
+        grid-row-end: 5;
+
+        .form-title {
+            font-family: $font-gotham-pro;
+            font-weight: 200;
+            margin-block-end: 0.5em;
+            color: #aca8ab;
+        }
+
+        #email-input {
+            margin-block-end: 1em;
+            padding: 1.3em;
+            width: 86%;
+            border: 1px solid lightgray;
+            border-radius: 8px;
+        }
+
+        .checkbox {
+            cursor: pointer;
+            outline: 0;
+            height: 1.5em;
+            width: 1.5em;
+            border: 1px solid black;
+            border-radius: 30%;
+            vertical-align: middle;
+            margin: 0;
+        }
+
+        label {
+            vertical-align: middle;
+            display: inline-block;
+            margin-left: 6px;
+            font-family: $font-gotham-pro;
+            font-size: 16px;
+            font-weight: 200;
+            letter-spacing: -0.03rem
+        }
+    }
+
+    .sign-in-button {
+        @include left-margin();
+        font-family: $font-gotham-pro;
+        font-size: 15px;
+        grid-row-start: 5;
+        width: 25%;
+        height: 40%;
+        background-color: white;
+        border-radius: 10%;
+        border: 1px solid lightgray;
     }
 }
 
