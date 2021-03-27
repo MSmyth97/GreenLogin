@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../assets/logo-r.svg';
+import logo from '../assets/logo.svg';
 
 export const LoginModal = () => {
     return (

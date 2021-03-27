@@ -12,9 +12,13 @@
 }
 
 @mixin font-control($defaultSize) {
-    @media(max-width: 300px) {
-        font-size: $defaultSize / 1.6;
+    @media(max-width: 400px) {
+        font-size: $defaultSize / 1.6px;
     }
+}
+
+@mixin border-style($border-color) {
+    border: 1px solid $border-color;
 }
 
 * {
@@ -24,8 +28,6 @@
 
 .box {
     background-color: white;
-    box-shadow: $box-shadow;
-    box-shadow: $box-shadow;
     box-shadow: $box-shadow;
     display: grid;
     grid-area: modal;
@@ -98,12 +100,12 @@
                 width: 86%;
 
                 &:hover {
-                    border: 1px solid $hover-color;
+                    @include border-style($hover-color);
                 }
             }
 
             .checkbox {
-                border: 1px solid black;
+                @include border-style(black);
                 border-radius: 30%;
                 cursor: pointer;
                 height: 1.5em;
@@ -140,7 +142,7 @@
 
         &:hover,
         &:focus {
-            background-color: #2eaf5f;
+            background-color: $button-hover-state;
             color: white;
         }
     }
