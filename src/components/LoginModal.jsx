@@ -14,7 +14,7 @@ export const LoginModal = () => {
             <div className='form-container'>
                 <p className='form-title'>Email Address</p>
                 <form id="log-in-form" className="log-in-form">
-                    <input type="text" maxLength="50" id="email-input" className="email-input"/><br />
+                    <input type="text" maxLength="50" id="email-input" className="email-input" placeholder="Email"/><br />
                     <input type="checkbox" className="checkbox"/>
                     <label for="checkbox">Remember this device</label>
                 </form>

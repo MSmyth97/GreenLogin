@@ -19,6 +19,7 @@
 
 @mixin border-style($border-color) {
     border: 1px solid $border-color;
+    outline: none;
 }
 
 * {
@@ -99,8 +100,10 @@
                 padding: 1.3em;
                 width: 86%;
 
-                &:hover {
+                &:hover,
+                &:focus {
                     @include border-style($hover-color);
+                    outline: none;
                 }
             }
 
@@ -142,6 +145,7 @@
 
         &:hover,
         &:focus {
+            @include border-style($hover-color);
             background-color: $button-hover-state;
             color: white;
         }
