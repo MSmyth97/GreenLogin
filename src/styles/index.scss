@@ -1,21 +1,21 @@
-@import './LoginBox.scss';
-@import './variables.scss';
+@import './LoginBox';
+@import './variables';
 
 html,
 body {
-    width: 100vw;
-    height: 100vh;
     background-color: #fafafa;
     font-family: $font-gotham;
+    height: 100vh;
     overflow: hidden;
+    width: 100vw;
 
     #root {
         display: grid;
+        grid-template-areas: '. . .' '. modal .' '. . .';
         grid-template-columns: 2% 94% 2%;
         grid-template-rows: 23% 60% auto;
-        grid-template-areas: ". . ." ". modal ." ". . .";
-        width: 100vw;
         height: 100vh;
+        width: 100vw;
 
         @media(min-width: 600px) {
             grid-template-columns: auto 500px auto;

@@ -3,7 +3,7 @@
 
 @mixin left-margin() {
     margin-left: 10%;
-  }
+}
 
 @mixin font-style-light() {
     font-family: $font-gotham;
@@ -23,26 +23,26 @@
 }
 
 .box {
-    grid-area: modal;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: auto [blank] auto [logo] auto [title] auto [form] auto [button];
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: relative;
     background-color: white;
     box-shadow: $box-shadow;
-    -webkit-box-shadow: $box-shadow;
-    -moz-box-shadow: $box-shadow;
+    box-shadow: $box-shadow;
+    box-shadow: $box-shadow;
+    display: grid;
+    grid-area: modal;
+    grid-template-columns: 100%;
+    grid-template-rows: auto [blank] auto [logo] auto [title] auto [form] auto [button];
+    left: 50%;
+    position: absolute;
+    position: relative;
+    top: 50%;
+    transform: translate(-50%, -50%);
 
     .logo-container {
         @include left-margin();
-        grid-row-start: 2;
         grid-row-end: 3;
-        width: 22%;
+        grid-row-start: 2;
         max-height: 1em;
+        width: 22%;
  
         img {
             height: 2.3em;
@@ -51,51 +51,51 @@
 
     .title-container {
         @include left-margin();
-        position: relative;
-        grid-row-start: 3;
         grid-row-end: 4;
+        grid-row-start: 3;
+        position: relative;
         
         .title-text {
             @include font-control(29px);
-            font-family: $font-gotham;
             color: $font-colour-light-grey;
-            font-weight: 600;
-            margin-block-end: 0.2em;
+            font-family: $font-gotham;
             font-size: 35px;
+            font-weight: 600;
             letter-spacing: $default-letter-spacing;
+            margin-block-end: 0.2em;
         }
 
         .title-subtitle {
+            color: $font-colour-dark-grey;
             font-family: $font-gotham-pro;
             font-size: 18px;
             font-weight: 100;
-            color: $font-colour-dark-grey;
             letter-spacing: $default-letter-spacing;
         }
     }
 
     .form-container {
         @include left-margin();
-        grid-row-start: 4;
         grid-row-end: 5;
+        grid-row-start: 4;
 
         .form-title {
             @include font-style-light();
             @include font-control(16px);
-            margin-block-end: 0.5em;
             color: #aca8ab;
             font-size: 16px;
+            margin-block-end: 0.5em;
         }
 
         .log-in-form {
             margin-right: 10px;
 
             .email-input {
+                border: $default-border;
+                border-radius: 8px;
                 margin-block-end: 1em;
                 padding: 1.3em;
                 width: 86%;
-                border: $default-border;
-                border-radius: 8px;
 
                 &:hover {
                     border: 1px solid $hover-color;
@@ -103,43 +103,44 @@
             }
 
             .checkbox {
-                cursor: pointer;
-                outline: 0;
-                height: 1.5em;
-                width: 1.5em;
                 border: 1px solid black;
                 border-radius: 30%;
-                vertical-align: middle;
+                cursor: pointer;
+                height: 1.5em;
                 margin: 0;
+                outline: 0;
+                vertical-align: middle;
+                width: 1.5em;
             }
 
             label {
                 @include font-style-light();
                 @include font-control(16px);
-                vertical-align: middle;
                 display: inline-block;
-                margin-left: 6px;
                 font-family: $font-gotham-pro;
                 font-size: 14px;
-                letter-spacing: -0.03rem
+                letter-spacing: -0.03rem;
+                margin-left: 6px;
+                vertical-align: middle;
             }
         }
     }
 
     .sign-in-button {
         @include left-margin();
+        background-color: white;
+        border: $default-border;
+        border-radius: 6px;
         font-family: $font-gotham-pro;
         font-size: 15px;
         grid-row-start: 5;
-        width: 8em;
         height: 3.6em;
-        background-color: white;
-        border-radius: 6px;
-        border: $default-border;
         min-width: 70px;
+        width: 8em;
 
-        &:hover,&:focus {
-            background-color: #2EAF5F;
+        &:hover,
+        &:focus {
+            background-color: #2eaf5f;
             color: white;
         }
     }

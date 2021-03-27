@@ -1,16 +1,10 @@
 {
     "extends": "stylelint-config-sass-guidelines",
-    "plugins": [
-		"stylelint-order"
-	],
 	"rules": {
-		"order/order": [
-			"custom-properties",
-			"declarations"
-		],
-		"order/properties-order": [
-			"width",
-			"height"
-		]
+        "indentation": 4,
+        "color-named": null,
+		"max-nesting-depth": 6,
+		"selector-max-id": 4,
+		"selector-max-compound-selectors": 4
 	}
 }
