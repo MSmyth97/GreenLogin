@@ -1,49 +1,28 @@
 
-@import './variables.scss';
+@import './variables';
 
 @mixin left-margin() {
     margin-left: 10%;
-}
+  }
 
-@mixin font-style-light {
+@mixin font-style-light() {
     font-family: $font-gotham;
-    font-weight: 200 
+    font-weight: 200;
+    letter-spacing: $default-letter-spacing;
 }
 
-@mixin font-control-width($defaultSize) {
-    @media(max-width: 900px) {
-        font-size: $defaultSize / 1.2;
+@mixin font-control($defaultSize) {
+    @media(max-width: 300px) {
+        font-size: $defaultSize / 1.6;
     }
 }
-
-@mixin control-screen-width-change($defaultWidth) {
-    @media(max-width: 1000px) {
-        width: $defaultWidth / 1.2;
-    }
-    @media(max-width: 600px) {
-        width: $defaultWidth / 1.4;
-    }
-    @media(max-width: 400px) {
-        width: $defaultWidth / 1.6;
-    }
-}
-
-@mixin control-screen-height-change($defaultHeight) {
-    @media(max-width: 1000px) {
-        height: $defaultHeight / 1.2;
-    }
-}
-
-// @mixin set-min-width-smallest-screen {
-//     @media(max-width: )
-// }
 
 * {
     margin-block-end: 0;
     margin-block-start: 0;
 }
 
-#box {
+.box {
     grid-area: modal;
     display: grid;
     grid-template-columns: 100%;
@@ -54,39 +33,44 @@
     transform: translate(-50%, -50%);
     position: relative;
     background-color: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: $box-shadow;
+    -webkit-box-shadow: $box-shadow;
+    -moz-box-shadow: $box-shadow;
 
     .logo-container {
         @include left-margin();
         grid-row-start: 2;
         grid-row-end: 3;
         width: 22%;
+        max-height: 1em;
  
         img {
-            max-height: 33px;
+            height: 2.3em;
         }
     }
 
     .title-container {
         @include left-margin();
         position: relative;
-        margin-top: 5%;
         grid-row-start: 3;
-        grid-row-end: 4;        
+        grid-row-end: 4;
         
         .title-text {
+            @include font-control(29px);
             font-family: $font-gotham;
-            color: $font-colour-light;
+            color: $font-colour-light-grey;
             font-weight: 600;
             margin-block-end: 0.2em;
-            font-size: 1.8rem;
-            @include font-control-width(1.8rem);
+            font-size: 35px;
+            letter-spacing: $default-letter-spacing;
         }
 
         .title-subtitle {
             font-family: $font-gotham-pro;
-            font-size: 15px;
+            font-size: 18px;
             font-weight: 100;
+            color: $font-colour-dark-grey;
+            letter-spacing: $default-letter-spacing;
         }
     }
 
@@ -97,59 +81,64 @@
 
         .form-title {
             @include font-style-light();
+            @include font-control(16px);
             margin-block-end: 0.5em;
             color: #aca8ab;
+            font-size: 16px;
         }
 
         .log-in-form {
             margin-right: 10px;
-        }
 
-        #email-input {
-            @include control-screen-width-change(86%);
-            margin-block-end: 1em;
-            padding: 1.3em;
-            width: 86%;
-            border: 1px solid lightgray;
-            border-radius: 8px;
-        }
+            .email-input {
+                margin-block-end: 1em;
+                padding: 1.3em;
+                width: 86%;
+                border: $default-border;
+                border-radius: 8px;
 
-        .checkbox {
-            cursor: pointer;
-            outline: 0;
-            height: 1.5em;
-            width: 1.5em;
-            border: 1px solid black;
-            border-radius: 30%;
-            vertical-align: middle;
-            margin: 0;
-        }
+                &:hover {
+                    border: 1px solid $hover-color;
+                }
+            }
 
-        label {
-            @include font-style-light();
-            vertical-align: middle;
-            display: inline-block;
-            margin-left: 6px;
-            font-family: $font-gotham-pro;
-            font-size: 16px;
-            letter-spacing: -0.03rem
+            .checkbox {
+                cursor: pointer;
+                outline: 0;
+                height: 1.5em;
+                width: 1.5em;
+                border: 1px solid black;
+                border-radius: 30%;
+                vertical-align: middle;
+                margin: 0;
+            }
+
+            label {
+                @include font-style-light();
+                @include font-control(16px);
+                vertical-align: middle;
+                display: inline-block;
+                margin-left: 6px;
+                font-family: $font-gotham-pro;
+                font-size: 14px;
+                letter-spacing: -0.03rem
+            }
         }
     }
 
     .sign-in-button {
         @include left-margin();
-        @include control-screen-width-change(25%);
-        @include control-screen-height-change(40%);
         font-family: $font-gotham-pro;
         font-size: 15px;
         grid-row-start: 5;
-        width: 25%;
-        height: 40%;
+        width: 8em;
+        height: 3.6em;
         background-color: white;
         border-radius: 6px;
-        border: 1px solid lightgray;
+        border: $default-border;
+        min-width: 70px;
 
-        &:hover {
+        &:hover,&:focus {
             background-color: #2EAF5F;
             color: white;
         }

@@ -12,23 +12,18 @@ body {
     #root {
         display: grid;
         grid-template-columns: 2% 94% 2%;
-        grid-template-rows: 2% 94% auto;
+        grid-template-rows: 23% 60% auto;
         grid-template-areas: ". . ." ". modal ." ". . .";
         width: 100vw;
         height: 100vh;
 
-
         @media(min-width: 600px) {
-            grid-template-columns: auto 400px auto;
-            grid-template-rows: auto 400px auto;
-        }
-        @media(min-width: 800px) {
             grid-template-columns: auto 500px auto;
-            grid-template-rows: auto 500px auto;
+            grid-template-rows: auto 420px auto;
         }
-        @media(min-width: 1200px) {
+        @media(min-width: 1000px) {
             grid-template-columns: auto 600px auto;
-            grid-template-rows: auto 600px auto;
+            grid-template-rows: auto 520px auto;
         }
     }
     
