@@ -121,6 +121,7 @@
             label {
                 @include font-style-light();
                 @include font-control(16px);
+                cursor: pointer;
                 display: inline-block;
                 font-family: $font-gotham-pro;
                 font-size: 14px;
